@@ -57,7 +57,18 @@ done
 bash
 ```
 mkdir -p results/salmon_index
+
 sbatch scripts/salmon_index.sh $ref_transcripts results/salmon_index
+```
+
+bash
+```
+mkdir -p results/salmon_quant
+
+for r1 in results/trimgalore/*_R1.fastq.gz; do
+    r2="${r1/_R1/_R2}"
+    sbatch scripts/salmon_quant.sh "$r1" "$r2" results/salmon_index results/salmon_quant
+done
 ```
 
 ## Step 3: Pseudo-alignment and quantification with Salmon

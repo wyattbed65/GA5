@@ -79,7 +79,7 @@ The output of the command was:
 
 ### 8: Run Salmon for all samples
 
-<!-- No answer needed here -- we check `protocol.md` directly. -->
+
 
 ### 9: The transcripts with the most reads
 

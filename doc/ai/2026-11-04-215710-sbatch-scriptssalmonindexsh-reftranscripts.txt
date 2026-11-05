@@ -1,0 +1,76 @@
+
+❯ sbatch scripts/salmon_index.sh $ref_transcripts $outdir I used this code to
+  run scripts/salmon_index.sh, how come it is not working correctly
+
+● Let me look at the script and any error output.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+● Script looks fine syntactically. The issue is likely how you invoked it —
+  $ref_transcripts and $outdir need to be set as shell variables before the
+  sbatch call, in the same shell. Let me check if there's a slurm log showing
+  the actual error.
+
+● Bash(cd /fs/ess/PAS3493/people/wyattbed65/GA5 && find . -iname
+      "slurm-salmon_index-*.out" -newer scripts/salmon_index.sh 2>/dev/null |
+      tail -5; echo "---"; find . -i…)
+  ⎿  (No output)
+
+  Read 1 file (ctrl+o to expand)
+
+● That's the problem: sbatch scripts/salmon_index.sh $ref_transcripts $outdir
+  doesn't pass $ref_transcripts/$outdir as script arguments — sbatch only
+  forwards args after -- or treats trailing args as the script's args only if
+  given correctly, but more likely $ref_transcripts/$outdir were unset or empty
+  in your shell when you ran it, so no arguments actually reached the script and
+  $1 is unbound under set -u.
+
+  Check that both variables are actually set in your current shell before
+  calling sbatch:
+
+● Bash(echo "ref_transcripts='$ref_transcripts'"; echo "outdir='$outdir'")
+  ⎿  (No output)
+
+● Confirmed — both variables are empty/unset in your shell, so sbatch ran the
+  script with no arguments, and set -u in the script killed it at $1. Set them
+  first, e.g.:
+
+  ref_transcripts=/path/to/transcripts.fa
+  outdir=/path/to/output
+  sbatch scripts/salmon_index.sh "$ref_transcripts" "$outdir"
+
+  Then resubmit.
+
+❯ <ide_opened_file>The user opened the file
+  /fs/ess/PAS3493/people/wyattbed65/GA5/scripts/salmon_quant.sh in the IDE.
+  This may or may not be related to the current task.</ide_opened_file>
+
+❯ why is my code sbatch scripts/salmon_quant.sh results/trimgalore/R1
+  results/trimgalore/R2 results/salmon_index results/salmon_quant not working
+  with scripts/salmon_quant.sh
+
+  Read 1 file, listed 1 directory (ctrl+o to expand)
+
+● Found it — two problems:
+
+  1. The script only handles one sample, but your globs *R1*/*R2* match dozens
+     of files across many samples (S63, S64, S65...) plus non-FASTQ files like
+     _trimming_report.json, _fastqc.html, .zip. The script expects exactly one
+     R1 file and one R2 file as $1 and $2.
+  2. sample_id=$(basename "$R1" _R1.fastq.gz) expects the raw R1 filename, but
+     Trim Galore outputs *_val_1.fq.gz-style names normally — here your trimmed
+     R1 reads are apparently still named S63_R1.fastq.gz (not _val_1), so that
+     part's fine, but it only works for a single clean filename, not a glob
+     list.
+
+  You need to submit one sbatch job per sample, looping over R1 files and
+  deriving the matching R2:
+
+  for r1 in results/trimgalore/*_R1.fastq.gz; do
+      r2="${r1/_R1/_R2}"
+      sbatch scripts/salmon_quant.sh "$r1" "$r2" results/salmon_index
+  results/salmon_quant
+  done
+
+  Also tighten the glob — use results/trimgalore/*_R1.fastq.gz (not *R1*) so it
+  doesn't pick up the trimming reports/fastqc files.
