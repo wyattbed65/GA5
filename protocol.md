@@ -35,13 +35,11 @@ wget -P data/ref/ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/801/865/GCF_0
 
 ```bash
 # Inputs:
-fastq_dir=data/fastq
-ref_transcripts=data/ref/transcripts.fna
+fastq_dir=../garrigos/fastq
+ref_transcripts=data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz
 
 # Base output dir:
 outdir=results
-
-mkdir -p data/fastq data/ref/transcripts.fna
 ```
 
 ## Step 1: Read trimming with TrimGalore
