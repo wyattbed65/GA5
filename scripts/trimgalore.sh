@@ -50,6 +50,7 @@ echo "# Renaming the output files:"
 mv -v "$R1_out_init" "$R1_out_final"
 mv -v "$R2_out_init" "$R2_out_final"
 
+
 # Final logging
 echo
 echo "# TrimGalore version:"

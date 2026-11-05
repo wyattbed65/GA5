@@ -48,12 +48,14 @@ The output of the command was:
 
 ### 6: Run TrimGalore
 
-<!-- Put the code to run TrimGalore in `protocol.md`, not here. -->
+
 
 *Answer*: Whether all batch jobs succeeded, and how you checked that
 (and any problems you encountered, and how you solved them):
 
-------------------------------------------------------------------------
+I encountered a problem in my original code, as I didn't set the correct input directory and had to change it. This is reflected in the Git repository. I also originially messed up the loop, as I put the same line fastq_r1 in "$fastq_dir"/*_R1.fastq.gz to get the second command. It didn't work, and I looked at the notes to revise my loop and change it to the proper format. 
+
+To check for errors, I used the command tail slurm-trimgalore*.out, which printed all of my slurm files and all of them were labeled as successful. 
 
 ## Part C: Transcript quantification with Salmon
 
