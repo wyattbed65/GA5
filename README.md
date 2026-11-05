@@ -83,15 +83,18 @@ The output of the command was:
 
 ### 9: The transcripts with the most reads
 
-*Answer*: What the `NumReads` column contains:
+*Answer*: What the `NumReads` column contains: It is an estimation for the number of reads matching to each transcript that was quantified.
 
 ```bash
-# Your command:
+sort -k5,5nr results/salmon_quant/S63/quant.sf | head -n 3
 ```
 
 The output of the command was:
 
 ```
+XM_039591534.2  6566    6315.086        14518.656821    24004.889
+XM_039573735.1  6445    6194.086        5342.073324     8663.254
+XM_039573733.1  6591    6340.086        2876.480244     4774.749
 ```
 
 ### 10: The gene of the top transcript
