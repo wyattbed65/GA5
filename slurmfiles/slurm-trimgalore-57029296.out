@@ -1,0 +1,65 @@
+# Starting script trimgalore.sh
+Wed Nov  4 08:11:31 PM EST 2026
+# Input R1 FASTQ file:      ../garrigos/fastq/S66_R1.fastq.gz
+# Input R2 FASTQ file:      ../garrigos/fastq/S66_R2.fastq.gz
+# Output dir:               results/trimgalore
+
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+
+Trim Galore v2.3.0
+unknown — linux/x86_64 — built 2026-06-27T16:23:35Z
+==================================================
+
+Using 8 worker threads (parallel trim + compress)
+Auto-detecting adapter type...
+No adapters detected in the first 500000 reads. Defaulting to Illumina adapter.
+Adapter: Illumina (AGATCGGAAGAGC)
+
+Poly-G trimming: ENABLED (auto-detected). 694 of 500000 reads (0.14%) have poly-G tails (>=10bp) — consistent with 2-colour chemistry (NovaSeq/NextSeq). To disable: --no_poly_g
+Trimming (paired-end):
+  R1: ../garrigos/fastq/S66_R1.fastq.gz
+  R2: ../garrigos/fastq/S66_R2.fastq.gz
+  Output R1: results/trimgalore/S66_R1_val_1.fq.gz
+  Output R2: results/trimgalore/S66_R2_val_2.fq.gz
+
+=== Summary (Read 1) ===
+
+Total reads processed:               500000
+Reads with adapters:                  67210 (13.4%)
+
+=== Summary (Read 2) ===
+
+Total reads processed:               500000
+Reads with adapters:                  48741 (9.7%)
+R1 reads with poly-G trimmed:         11434 (2.3%)
+  R1 poly-G bases removed:            71088
+R2 reads with poly-G trimmed:         28232 (5.6%)
+  R2 poly-G bases removed:           723050
+
+=== Paired-end validation ===
+
+Pairs analyzed:                      500000
+Pairs removed:                        18565 (3.7%)
+Unpaired R1 kept:                      2765
+Unpaired R2 kept:                      2372
+Report: results/trimgalore/S66_R1.fastq.gz_trimming_report.txt
+JSON report: results/trimgalore/S66_R1.fastq.gz_trimming_report.json
+Report: results/trimgalore/S66_R2.fastq.gz_trimming_report.txt
+JSON report: results/trimgalore/S66_R2.fastq.gz_trimming_report.json
+
+Running FastQC on results/trimgalore/S66_R1_val_1.fq.gz
+
+Running FastQC on results/trimgalore/S66_R2_val_2.fq.gz
+
+# Renaming the output files:
+renamed 'results/trimgalore/S66_R1_val_1.fq.gz' -> 'results/trimgalore/S66_R1.fastq.gz'
+renamed 'results/trimgalore/S66_R2_val_2.fq.gz' -> 'results/trimgalore/S66_R2.fastq.gz'
+
+# TrimGalore version:
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+trim_galore 2.3.0
+unknown — linux/x86_64 — built 2026-06-27T16:23:35Z
+# Successfully finished script trimgalore.sh
+Wed Nov  4 08:11:38 PM EST 2026
