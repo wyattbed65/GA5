@@ -1,0 +1,47 @@
+# Starting script salmon_quant.sh
+Wed Nov  4 10:02:02 PM EST 2026
+# Input R1 FASTQ file:            results/trimgalore/S71_R1.fastq.gz
+# Input R2 FASTQ file:            results/trimgalore/S71_R2.fastq.gz
+# Input Salmon index:             results/salmon_index
+# Output dir:                     results/salmon_quant
+# Sample ID (inferred):           S71
+
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+[2m2026-11-05T03:02:03.667516Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m Loading SSHash dictionary from results/salmon_index/index.ssi
+[2m2026-11-05T03:02:03.709015Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m   k=31, 216106 strings
+[2m2026-11-05T03:02:03.709052Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m Loading contig table from results/salmon_index/index.ctab
+[2m2026-11-05T03:02:03.714881Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m   216106 contigs, 822138 entries, entry_width=32 bits
+[2m2026-11-05T03:02:03.714908Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m Loading reference info from results/salmon_index/index.refinfo
+[2m2026-11-05T03:02:03.717972Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m   28431 references, max_ref_len=40609
+[2m2026-11-05T03:02:03.718490Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m Loading equivalence class table from results/salmon_index/index.ectab
+[2m2026-11-05T03:02:03.722239Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m   216106 tiles, 96099 ECs, 469445 label entries
+[2m2026-11-05T03:02:03.722314Z[0m [32m INFO[0m [2mpiscem_rs::index::reference_index[0m[2m:[0m   ref_shift=17, pos_mask=0xffff
+[2m2026-11-05T03:02:03.777557Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"index_load" [3melapsed_s[0m[2m=[0m0.113425656
+[2m2026-11-05T03:02:03.799841Z[0m [32m INFO[0m [2mpiscem_rs::io::calibrate[0m[2m:[0m using the serial decoder: 8 threads for 2 gzip input(s) is below the 50 threads per input needed before parallel decoding adds concurrency the serial path does not already have
+[2m2026-11-05T03:02:03.801720Z[0m [32m INFO[0m [2msalmon_quant::decode[0m[2m:[0m thread execution plan [3mrequested_budget[0m[2m=[0m8 [3meffective_budget[0m[2m=[0m8 [3mmapping_threads[0m[2m=[0m8 [3mdecode_slots[0m[2m=[0m0 [3mparallel_decode[0m[2m=[0mfalse [3mreason[0m[2m=[0mPolicyDeclined
+[2m2026-11-05T03:02:03.801743Z[0m [32m INFO[0m [2msalmon_quant[0m[2m:[0m mapping reads (selective-alignment mode, 8 threads)
+[2m2026-11-05T03:02:04.918478Z[0m [32m INFO[0m [2msalmon_quant[0m[2m:[0m mapped 388273 / 474722 fragments (81.79%)
+[2m2026-11-05T03:02:04.918533Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"mapping" [3melapsed_s[0m[2m=[0m1.140983778
+[2m2026-11-05T03:02:04.918667Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"eff_length_collapse" [3melapsed_s[0m[2m=[0m0.000134856
+[2m2026-11-05T03:02:04.922176Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"em_bias" [3melapsed_s[0m[2m=[0m0.00350754
+[2m2026-11-05T03:02:04.922234Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"posterior" [3melapsed_s[0m[2m=[0m5.9266e-5
+[2m2026-11-05T03:02:04.923376Z[0m [32m INFO[0m [2msalmon_quant[0m[2m:[0m writing results to results/salmon_quant/S71
+[2m2026-11-05T03:02:04.935603Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"output" [3melapsed_s[0m[2m=[0m0.013364152
+[2m2026-11-05T03:02:04.935810Z[0m [32m INFO[0m [2msalmon[0m[2m:[0m deterministic: mapped 388273 / 474722 fragments (81.79%); quantifying from intermediate RAD
+[2m2026-11-05T03:02:04.941762Z[0m [32m INFO[0m [2msalmon_align::rad[0m[2m:[0m quantifying from RAD (salmon SA), 28431 references
+[2m2026-11-05T03:02:04.941926Z[0m [32m INFO[0m [2msalmon_align::rad[0m[2m:[0m using fragment-length distribution baked in the RAD header
+[2m2026-11-05T03:02:04.941938Z[0m [32m INFO[0m [2msalmon_align::rad[0m[2m:[0m library format under `-l A`: ISF (baked in RAD header)
+[2m2026-11-05T03:02:04.987881Z[0m [32m INFO[0m [2msalmon_align::rad[0m[2m:[0m mapped 379325 / 474722 fragments from RAD
+[2m2026-11-05T03:02:04.997319Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"rad_read" [3melapsed_s[0m[2m=[0m0.059754405
+[2m2026-11-05T03:02:05.262373Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"em_bias" [3melapsed_s[0m[2m=[0m0.26505142
+[2m2026-11-05T03:02:05.263253Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"posterior" [3melapsed_s[0m[2m=[0m0.000884467
+[2m2026-11-05T03:02:05.281868Z[0m [32m INFO[0m [2msalmon::timing[0m[2m:[0m phase complete [3mphase[0m[2m=[0m"output" [3melapsed_s[0m[2m=[0m0.018614604
+[2m2026-11-05T03:02:05.285272Z[0m [32m INFO[0m [2msalmon[0m[2m:[0m 474722 fragments from intermediate RAD, 379325 quantified (79.90%); 19025 equivalence classes
+
+# Used Salmon version:
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+salmon 2.8.0
+# Successfully finished script salmon_quant.sh
+Wed Nov  4 10:02:06 PM EST 2026
