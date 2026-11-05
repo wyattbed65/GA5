@@ -100,15 +100,16 @@ XM_039573733.1  6591    6340.086        2876.480244     4774.749
 ### 10: The gene of the top transcript
 
 ```bash
-# Your command:
+grep "XM_039591534.2" data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna 
 ```
 
 The output of the command was:
 
 ```
+XM_039591534.2 PREDICTED: Culex pipiens pallens vitellogenin-A1-like (LOC120426760), mRNA
 ```
 
-*Answer*: The gene that the top transcript belongs to:
+*Answer*: The gene that the top transcript belongs to: Culex pipiens pallens vitellogenin-A1-like (LOC120426760)
 
 ### 11: Mapping rates
 
