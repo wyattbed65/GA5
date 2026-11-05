@@ -54,7 +54,11 @@ done
 
 ## Step 2: Creating a transcriptome index with Salmon
 
-<???>
+bash
+```
+mkdir -p results/salmon_index
+sbatch scripts/salmon_index.sh $ref_transcripts results/salmon_index
+```
 
 ## Step 3: Pseudo-alignment and quantification with Salmon
 

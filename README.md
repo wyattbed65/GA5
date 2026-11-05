@@ -64,17 +64,18 @@ To check for errors, I used the command tail slurm-trimgalore*.out, which printe
 Code to check the size of the index dir:
 
 ```bash
-# Your command:
+du -sh results/salmon_index
 ```
 
 The output of the command was:
 
 ```
+1.1G    results/salmon_index
 ```
 
-*Answer*: How long it took to create the index, and how you found out:
+*Answer*: How long it took to create the index, and how you found out: It took 24 seconds. On the slurm file, it says I submitted it at 9:25:43. When I ran tail tail slurm-salmon_index-57030300.out, it says it was completed at 9:26:07, which is 24 seconds.
 
-*Answer*: The size of the index dir:
+*Answer*: The size of the index dir: 1.1 G
 
 ### 8: Run Salmon for all samples
 
