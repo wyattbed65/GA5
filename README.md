@@ -160,6 +160,16 @@ S82
 *Answer*: For each program, the number of reports that MultiQC found,
 and why it found this number:
 
+salmon | Found 22 meta reports
+Salmon is run on each sample, not each read, meaning there are half the reports.
+salmon | Found 22 fragment length distributions
+salmon | Found 22 library format counts reports
+trim_galore | Found 44 reports
+Trim Galore looks at both reads (R1 and R2) for each sample. This is why there are double the reports.
+fastqc | Found 44 reports
+FastQC contains the files for both reads (R1 and R2) for each sample.
+
+
 ### 14: The General Statistics table
 
 *Answer*: The sample with the lowest Salmon mapping rate,

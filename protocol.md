@@ -61,6 +61,8 @@ mkdir -p results/salmon_index
 sbatch scripts/salmon_index.sh $ref_transcripts results/salmon_index
 ```
 
+## Step 3: Pseudo-alignment and quantification with Salmon
+
 bash
 ```
 mkdir -p results/salmon_quant
@@ -71,10 +73,12 @@ for r1 in results/trimgalore/*_R1.fastq.gz; do
 done
 ```
 
-## Step 3: Pseudo-alignment and quantification with Salmon
-
-<???>
-
 ## Step 4: Summarizing the results of all steps with MultiQC
 
-<???>
+bash
+```
+mkdir -p results/multiqc
+
+sbatch scripts/multiqc.sh results/ results/multiqc
+```
+
