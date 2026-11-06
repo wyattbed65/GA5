@@ -181,6 +181,8 @@ The sample with the lowest mapping rate is S83, which is the same as question 11
 *Answer*: The most common adapter lengths, whether this surprised you,
 and why you think these lengths are the most common:
 
+The most common adapter lengths were all less than 5BP, with 1 BP being the most common. This did suprise me, as I would have expected the adapters to be larger. However, this small adapter length could be due to the adapter having 1-5 nucleotides that overlap with the fragment, which would cause trimgalore to take them out. 
+
 ### 16: Ask Claude about the MultiQC report
 
 *Answer*: What you asked, and what you learned from Claude's answer (in your own words):
