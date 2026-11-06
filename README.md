@@ -187,7 +187,11 @@ The most common adapter lengths were all less than 5BP, with 1 BP being the most
 
 *Answer*: What you asked, and what you learned from Claude's answer (in your own words):
 
-------------------------------------------------------------------------
+What I asked: Could you explain why the adapter length distribution graph has the most common adapter lengths being 1-5BP?
+
+What Claude replied: So the graph's peak at 1-5bp is dominated by random/spurious short matches, not genuine adapter contamination. What you should actually look at is whether there's a meaningful tail of longer-length matches (e.g., 20bp+) — that's the real signal of adapter contamination needing trimming. If the curve drops off sharply after ~5-10bp, your data is likely fine.
+
+I learned that my prediction was correct, as the peak was likely due to random and short matches. I also learned that this is actually normal and is a sign of good data. It is more of a concern is there are peaks above 20+, as this would show adapter contamination.
 
 ## Part E: Improving the workflow with genAI
 
