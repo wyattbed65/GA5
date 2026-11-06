@@ -1,5 +1,9 @@
 #!/bin/bash
 set -euo pipefail
+#SBATCH --account=PAS3493
+#SBATCH --mail-type=FAIL
+#SBATCH --output=slurm-multiqc-%j.out
+
 
 # Run MultiQC to summarize the output of other programs (e.g. FastQC) in an input dir
 # Usage: bash scripts/multiqc.sh <input dir> <output dir>
