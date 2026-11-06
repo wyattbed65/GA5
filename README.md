@@ -1,4 +1,4 @@
-
+[![DOI](https://sandbox.zenodo.org/badge/1447761818.svg)](https://handle.test.datacite.org/10.5072/zenodo.633685)
 
 # GA5 answers - Wyatt Bednar
 
@@ -230,4 +230,3 @@ I also added the cpus-per-task and time in the multiqc script. (2nd suggestion)
 
 *Answer*: Your Zenodo Sandbox DOI:  DOI: 10.5072/zenodo.633686
 
-[![DOI](https://sandbox.zenodo.org/badge/1447761818.svg)](https://handle.test.datacite.org/10.5072/zenodo.633685)
