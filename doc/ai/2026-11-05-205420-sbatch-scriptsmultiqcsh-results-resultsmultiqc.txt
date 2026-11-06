@@ -1,0 +1,38 @@
+
+❯ <ide_opened_file>The user opened the file
+  /fs/ess/PAS3493/people/wyattbed65/GA5/scripts/multiqc.sh in the IDE. This may
+  or may not be related to the current task.</ide_opened_file>
+
+❯ sbatch scripts/multiqc.sh results/ results/multiqc
+  sbatch: error: ERROR: Job invalid: Must specify account for job
+  sbatch: error: Batch job submission failed: Unspecified error why does my
+  scripts have this error
+
+● Your Slurm cluster requires an account (-A/--account) for every job and your
+  script doesn't specify one. Add it as an #SBATCH directive.
+
+  Read 1 file (ctrl+o to expand)
+
+● Found it: line 2 (set -euo pipefail) is a non-comment line placed before your
+  #SBATCH directives. Slurm's sbatch only reads #SBATCH lines that appear
+  contiguously after the shebang — once it hits a real command, it stops
+  scanning, so your --account=PAS3493 on line 3 is silently ignored.
+
+  Fix: move set -euo pipefail below the #SBATCH block.
+
+● Update(GA5/scripts/multiqc.sh)
+  ⎿  Added 1 line, removed 1 line
+       1  #!/bin/bash
+       2 -set -euo pipefail                                              
+       2  #SBATCH --account=PAS3493
+       3  #SBATCH --mail-type=FAIL
+       4  #SBATCH --output=slurm-multiqc-%j.out
+       5  #SBATCH --cpus-per-task=8
+       6  #SBATCH --time=30
+       7 +set -euo pipefail                                              
+       8  
+       9  
+      10  # Run MultiQC to summarize the output of other programs (e.g. F
+          astQC) in an input dir
+
+● Fixed — resubmit the job now.
