@@ -2,10 +2,10 @@
 
 - Author: Wyatt Bednar
 - Date created: 11/3/2026
-- Date last modified: 11/3/2026
+- Date last modified: 11/5/2026
 - This was run at the Pitzer cluster of the Ohio Supercomputer Center (<https://www.osc.edu>)
 - OSC working dir: GA5
-- GitHub repository: 
+- GitHub repository: https://github.com/wyattbed65/GA5
 
 ## Prerequisites
 
@@ -44,8 +44,8 @@ outdir=results
 
 ## Step 1: Read trimming with TrimGalore
 
-bash
-```
+
+```bash
 for fastq_r1 in "$fastq_dir"/*_R1.fastq.gz; do
     fastq_r2="${fastq_r1/_R1/_R2}"
     sbatch scripts/trimgalore.sh "$fastq_r1" "$fastq_r2" results/trimgalore
@@ -54,8 +54,8 @@ done
 
 ## Step 2: Creating a transcriptome index with Salmon
 
-bash
-```
+
+```bash
 mkdir -p results/salmon_index
 
 sbatch scripts/salmon_index.sh $ref_transcripts results/salmon_index
@@ -63,8 +63,8 @@ sbatch scripts/salmon_index.sh $ref_transcripts results/salmon_index
 
 ## Step 3: Pseudo-alignment and quantification with Salmon
 
-bash
-```
+
+```bash
 mkdir -p results/salmon_quant
 
 for r1 in results/trimgalore/*_R1.fastq.gz; do
@@ -75,8 +75,8 @@ done
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
-bash
-```
+
+```bash
 mkdir -p results/multiqc
 
 sbatch scripts/multiqc.sh results/ results/multiqc

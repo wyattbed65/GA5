@@ -2,7 +2,8 @@
 #SBATCH --account=PAS3493
 #SBATCH --mail-type=FAIL
 #SBATCH --output=slurm-multiqc-%j.out
-
+#SBATCH --cpus-per-task=8
+#SBATCH --time=60
 set -euo pipefail
 
 

@@ -200,17 +200,31 @@ I learned that my prediction was correct, as the peak was likely due to random a
 *Answer*: At least three of Claude's suggestions,
 and whether you agree or disagree with each one, and why:
 
+Step 1 command block isn't inside the fenced code block 
+
+I agree with this one, as I was curious why my code was not looking correct in the code boxes. 
+
+multiqc.sh has no --cpus-per-task or --time SBATCH directive — the other three scripts set both. MultiQC will run under Slurm's default allocation, which may be inconsistent/too small; add explicit --cpus-per-task/--time for reproducibility and resource consistency across scripts. 
+
+I agree with this one as well. Although the default time is plenty for the multiqc slurm job, it is important to include cpus-per-task and time for consistency in reproducing the data. 
+
+trimgalore.sh assumes input is always *_R1.fastq.gz (via basename ... _R1.fastq.gz) — same assumption as salmon_quant.sh. Since this naming convention is load-bearing for the whole pipeline, document it once in protocol.md (see above) rather than leaving it implicit in three separate scripts.
+
+I don't agree with this, as this can be found in the code loop that is documented in the protocol. I do not believe this is necessary and the data would be reproducbile without this note. 
+
 ### 18: Address a suggestion
 
 *Answer*: Which suggestion(s) you addressed, and what you changed:
 
-------------------------------------------------------------------------
+I fixed the code boxes in the protocol to match the proper markdown format. (1st suggestion)
+
+I also added the cpus-per-task and time in the multiqc script. (2nd suggestion)
 
 ## Part F: Publish your repo on GitHub
 
 ### 19: Create a GitHub repository and push
 
-<!-- No answer needed here -- we check your GitHub repo directly. -->
+
 
 ### 20: Get a (test) DOI with Zenodo
 
