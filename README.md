@@ -146,8 +146,7 @@ results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 
 *Answer*: The sample with the lowest mapping rate:
 
-results/salmon_quant/S82/logs/salmon_quant.log:mapping rate: 78.7291%
-S82
+results/salmon_quant/S83/logs/salmon_quant.log:mapping rate: 76.1504%
 
 ## Part D: Summarizing all steps with MultiQC
 
@@ -174,6 +173,8 @@ FastQC contains the files for both reads (R1 and R2) for each sample.
 
 *Answer*: The sample with the lowest Salmon mapping rate,
 and whether this matches your answer to question 11:
+
+The sample with the lowest mapping rate is S83, which is the same as question 11.
 
 ### 15: Adapter lengths
 
